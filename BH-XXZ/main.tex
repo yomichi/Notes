@@ -1,0 +1,88 @@
+\documentclass{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{braket}
+
+\title{ハードコアボーズハバード模型とXXZ 模型との対応}
+\author{Yuichi Motoyama}
+
+\begin{document}
+\maketitle
+
+ハードコアボーズハバード模型
+\begin{equation}
+  \mathcal{H}_\text{BH}
+  =
+  - \sum_{i<j}\left( t_{ij} b_i^\dagger b_j + \text{h.c.}\right)
+  + \sum_{i<j}V_{ij} n_i n_j
+  - \sum_i \mu_i n_i
+  + V_\text{BH}^0
+\end{equation}
+とスピン1/2 反強磁性XXZ 模型
+\begin{equation}
+  \mathcal{H}_\text{XXZ}
+  =
+  \sum_{i<j}\left( \frac{J_{ij}^{xy}}{2} \left(S_i^+S_j^- + S_i^-S_j^+\right) + J_{ij}^z S_i^zS_j^z \right)
+  - \sum_i h_i S_i^z
+  + V_\text{XXZ}^0
+\end{equation}
+との対応関係を導く。
+
+演算子の変換則
+\begin{equation}
+  \begin{cases}
+    n_i &= S_i^z + 1/2 \\
+    b_i^\dagger &= S_i^+ \\
+    b_i &= S_i^-
+  \end{cases}
+\end{equation}
+をボーズ系のハミルトニアンに代入すると
+\begin{equation}
+  \mathcal{H}_\text{BH}
+  =
+  \sum_{i<j}\left( -t_{ij} \left(S_i^+ S_j^- + S_i^- S_j^+\right) + V_{ij} S_i^z S_j^z  \right)
+  + \sum_i S_i^z \left( -\mu_i +  \sum_{j \ne i} \frac{V_{ij}}{2} \right)
+  + \sum_{i<j} \frac{V_{ij}}{4}
+  - \sum_i \frac{\mu_i}{2}
+  + V_\text{BH}^0
+\end{equation}
+となるので、これをXXZ 模型のハミルトニアンと比較することで、
+ハードコアボーズハバード模型からXXZ 模型への変換は
+\begin{equation}
+  \begin{cases}
+    J_{ij}^{xy} &= -2t_{ij} \\
+    J_{ij}^z &= V_{ij} \\
+    h_i &= \mu_i - \sum_{j \ne i} V_{ij}/2 \\
+    V_\text{XXZ}^0 &= \sum_{i<j}V_{ij}/4 - \sum_i \mu_i/2 + V_\text{BH}^0
+  \end{cases}
+\end{equation}
+で、逆にXXZ 模型からハードコアボーズハバード模型への変換は
+\begin{equation}
+  \begin{cases}
+    t_{ij} &= -J_{ij}^{xy}/2 \\
+    V_{ij} &= J_{ij}^z \\
+    \mu_i &= h_i + \sum_{j \ne i} J_{ij}^z/2 \\
+    V_\text{BH}^0 &= \sum_i h_i/2 + \sum_{i<j} J_{ij}^z/4 + V_\text{XXZ}^0
+  \end{cases}
+\end{equation}
+とすれば良い事がわかる。
+とくに、ポテンシャルにサイトやボンド依存性がなく、
+各サイトの最近接サイト数が同じ($z$) のときは
+\begin{equation}
+  \begin{cases}
+    J^{xy} &= 2t \\
+    J^z &= V \\
+    h &= \mu - zV/2 \\
+    V_\text{offset} &= N_bV/4 - N_s\mu/2
+  \end{cases}
+\end{equation}
+および
+\begin{equation}
+  \begin{cases}
+    t &= J^{xy}/2 \\
+    V &= J^z \\
+    \mu &= h + zJ^z/2 \\
+    V_\text{BH}^0 &= N_sh/2 + N_bJ^z/4 + V_\text{XXZ}^0
+  \end{cases}
+\end{equation}
+となる。
+\end{document}
